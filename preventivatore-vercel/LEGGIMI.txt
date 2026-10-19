@@ -1,0 +1,11 @@
+PREVENTIVATORE - come pubblicarlo su Vercel
+1. Carica il contenuto di questa cartella in un repository GitHub PRIVATO (contiene il listino con i prezzi).
+2. Su vercel.com: Add New > Project > importa il repository. Framework Preset: "Other". Lascia vuoti i comandi di build
+   (la cartella da pubblicare, public, e' gia indicata in vercel.json).
+3. Prima di premere Deploy apri "Environment Variables" e crea APP_PASSWORD con la password per la rete vendite.
+   Se l'hai aggiunta dopo il primo deploy: Deployments > ... > Redeploy.
+4. Apri il sito: alla prima ricerca chiede la password.
+
+Aggiornare il listino: python scripts/converti_listino.py LISTINO_GENERALE.xlsx  (serve pandas; per i file .xls anche xlrd), poi ricarica data/listino.json su GitHub.
+Diagnosi: https://IL-TUO-SITO.vercel.app/api/prodotto?cod=GI6259431&qty=200&debug=1&pw=LA-TUA-PASSWORD
+Il campo "versione" deve essere 4.
